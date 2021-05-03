@@ -1,38 +1,141 @@
-.App {
-  text-align: center;
+/* Global Rules */
+
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: "Open Sans", sans-serif;
+}
+.container {
+  max-width: 1200px;
+  width: 100vw;
+  margin: 0 auto;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* ---------------- */
+/* HEADER */
+/* ---------------- */
+
+/* Top Bar  */
+
+header .top-bar img {
+  width: 156px;
+  padding: 10px 0 5px 0;
+}
+header hr {
+  border: 0.5px solid #efefef;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Resto-Infos  */
+
+header .resto-infos {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+header .resto-infos > div:first-child {
+  margin-right: 25px;
+}
+header .resto-infos h2 {
+  margin-bottom: 25px;
+  font-size: 29px;
+  font-weight: 700;
+  color: #2e3333;
+}
+header .resto-infos p {
+  font-size: 18px;
+  line-height: 30px;
+  color: #868a8a;
+}
+header .resto-infos img {
+  width: 350px;
+  border-radius: 5px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Section Meals  */
+
+.main-section {
+  background-color: #f3f5f5;
+  margin-top: 30px;
+}
+
+.container .meals {
+  display: flex;
+  width: 100%;
+}
+/* .container .meals > div:first-child {
+  width: 70%;
+} */
+.container .meals > div > div {
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+.container .category {
+  display: flex;
+  flex-wrap: wrap;
+}
+.category > div {
+  display: flex;
+  background-color: white;
+  width: 35%;
+  height: 160px;
+  text-overflow: ellipsis;
+  margin-bottom: 20px;
+  padding: 10px;
+  border-radius: 10px;
+}
+.category > div:not(:last-child) {
+  margin-right: 20px;
+}
+.container h3 {
+  margin-bottom: 25px;
+  font-size: 23px;
+  font-weight: 700;
+  color: #2e3333;
+}
+.category img {
+  width: 130px;
+  height: 130px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+.category .meal {
   display: flex;
   flex-direction: column;
+  width: 90%;
+}
+.category .meal h4 {
+  color: #2e3333;
+  margin-bottom: 10px;
+  font-size: 18px;
+  line-height: 25px;
+}
+.category .meal p {
+  width: 90%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: 40px;
+  margin-bottom: 20px;
+  color: #808484;
+  line-height: 1.3rem;
+  font-weight: 200;
+  font-size: 14px;
+}
+.category .meal > div {
+  display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
-
-.App-link {
-  color: #61dafb;
+.category .meal > div span {
+  margin-right: 20px;
+  color: #808484;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.category .meal .pop {
+  color: #ff8000;
+  font-weight: 700;
+  font-size: 13px;
+}
+.category .meal i {
+  color: #ff8000;
+  margin-right: 5px;
 }
