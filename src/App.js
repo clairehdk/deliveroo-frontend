@@ -19,28 +19,36 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
   // Gestion du panier
   const [basket, setBasket] = useState([]);
-  // Gestion du compteur dans le panier
-  const [counter, setCounter] = useState([0]);
-  const [isPresent, setPresent] = useState(false);
 
   // Création d'une fonction qui permet de récupérer les informations d'un item pour le mettre dans le panier
-  const handleBasket = (title, price, index, id) => {
-    const newBasket = [...basket];
-    if (basket.indexOf(title) === -1) {
-      newBasket.push({ id: id, title: title, price: price, quantity: 1 });
+  const handleBasket = (title, price, id) => {
+    const isPresent = basket.map((item) => item.id).indexOf(id);
+    if (isPresent === -1) {
+      const newBasket = [...basket];
+      newBasket.push({
+        id: id,
+        title: title,
+        price: price,
+        quantity: 1,
+      });
       setBasket(newBasket);
     } else {
-      newBasket[index].quantity++;
+      const newBasket = [...basket];
+      newBasket[isPresent].quantity += 1;
       setBasket(newBasket);
     }
-    setPresent(true);
   };
 
   // Création de fonctions pour gérer le compteur
   const handleMinus = (index) => {
     const newBasket = [...basket];
-    newBasket[index].quantity--;
-    setBasket(newBasket);
+    if (newBasket[index].quantity > 1) {
+      newBasket[index].quantity--;
+      setBasket(newBasket);
+    } else {
+      newBasket.splice(index, 1);
+      setBasket(newBasket);
+    }
   };
 
   const handlePlus = (index) => {
@@ -96,12 +104,7 @@ function App() {
                 );
               })}
             </div>
-            <Panier
-              basket={basket}
-              plus={handlePlus}
-              minus={handleMinus}
-              counter={counter}
-            />
+            <Panier basket={basket} plus={handlePlus} minus={handleMinus} />
           </div>
         </div>
       </div>
