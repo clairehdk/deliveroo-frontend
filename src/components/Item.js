@@ -1,19 +1,11 @@
 import React from "react";
 
-const Item = ({
-  title,
-  description,
-  picture,
-  price,
-  popular,
-  onClick,
-  selected,
-}) => {
+const Item = ({ title, description, picture, price, popular, onClick, id }) => {
   return (
     <div
       onClick={() => {
         {
-          onClick(title, price);
+          onClick(title, price, id);
         }
       }}
     >

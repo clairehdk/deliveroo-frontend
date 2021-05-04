@@ -1,7 +1,7 @@
 import React from "react";
 import Counter from "./Counter";
 
-const Panier = ({ basket, plus, minus, counter }) => {
+const Panier = ({ basket, plus, minus }) => {
   return (
     <div className="panier">
       <button>Valider mon panier</button>
@@ -20,7 +20,7 @@ const Panier = ({ basket, plus, minus, counter }) => {
               >
                 -
               </button>
-              <span>{counter}</span>
+              <span>{elem.quantity}</span>
               <button
                 onClick={() => {
                   plus(index);

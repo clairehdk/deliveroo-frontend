@@ -1,7 +1,7 @@
 import React from "react";
 import Item from "./Item";
 
-const Content = ({ name, meals, basket, selected }) => {
+const Content = ({ name, meals, basket }) => {
   return (
     meals.length > 0 && (
       <div>
@@ -10,6 +10,7 @@ const Content = ({ name, meals, basket, selected }) => {
           {meals.map((meal) => {
             return (
               <Item
+                id={meal.id}
                 key={meal.id}
                 title={meal.title}
                 description={meal.description}
@@ -17,7 +18,6 @@ const Content = ({ name, meals, basket, selected }) => {
                 popular={meal.popular}
                 picture={meal.picture}
                 onClick={basket}
-                isSelected={selected}
               />
             );
           })}

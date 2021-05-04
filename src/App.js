@@ -20,30 +20,33 @@ function App() {
   // Gestion du panier
   const [basket, setBasket] = useState([]);
   // Gestion du compteur dans le panier
-  const [counter, setCounter] = useState([1]);
-  //
-  const [selected, isSelected] = useState(false);
+  const [counter, setCounter] = useState([0]);
+  const [isPresent, setPresent] = useState(false);
 
   // Création d'une fonction qui permet de récupérer les informations d'un item pour le mettre dans le panier
-  const handleBasket = (title, price) => {
+  const handleBasket = (title, price, index, id) => {
+    const newBasket = [...basket];
     if (basket.indexOf(title) === -1) {
-      const newBasket = [...basket];
-      newBasket.push({ title: title, price: price });
+      newBasket.push({ id: id, title: title, price: price, quantity: 1 });
+      setBasket(newBasket);
+    } else {
+      newBasket[index].quantity++;
       setBasket(newBasket);
     }
+    setPresent(true);
   };
 
   // Création de fonctions pour gérer le compteur
   const handleMinus = (index) => {
-    const newCounter = [...counter];
-    newCounter[index]--;
-    setCounter(newCounter);
+    const newBasket = [...basket];
+    newBasket[index].quantity--;
+    setBasket(newBasket);
   };
 
   const handlePlus = (index) => {
-    const newCounter = [...counter];
-    newCounter[index]++;
-    setCounter(newCounter);
+    const newBasket = [...basket];
+    newBasket[index].quantity++;
+    setBasket(newBasket);
   };
 
   // Création d'une fonction pour récupérer les datas
@@ -89,7 +92,6 @@ function App() {
                     name={category.name}
                     meals={category.meals}
                     basket={handleBasket}
-                    selected={selected}
                   />
                 );
               })}
