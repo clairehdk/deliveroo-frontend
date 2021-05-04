@@ -12,6 +12,19 @@ body {
   margin: 0 auto;
 }
 
+.loading {
+  background-color: #f1f2f3;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.loading img {
+  width: 300px;
+  height: 300px;
+}
+
 /* ---------------- */
 /* HEADER */
 /* ---------------- */

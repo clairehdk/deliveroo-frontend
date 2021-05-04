@@ -2,12 +2,14 @@ import "./App.css";
 
 // Import des images
 import logo from "./assets/img/logo.png";
+import loading from "./assets/img/loading.svg";
 
 // Import des packages
 import axios from "axios";
 import { useState, useEffect } from "react";
 import Header from "./components/Header";
 import Content from "./components/Content";
+import Loading from "./components/Loading";
 
 function App() {
   // Récupère les datas
@@ -22,7 +24,7 @@ function App() {
       try {
         // On crée une variable dans laquelle on stocke les données recues du serveur créé sur le back, et on attend que toutes les données soient récupérées avant d'effectuer la suite
         const response = await axios.get(
-          "https://deliveroo-project.herokuapp.com/"
+          "https://deliveroo-project.herokuapp.com"
         );
         // On push les données du serveur dans notre objet data
         setData(response.data);
@@ -38,7 +40,7 @@ function App() {
   // Si nous n'avons pas recu les données, alors on affichera un texte d'attente
 
   return isLoading ? (
-    <span>Still Loading</span>
+    <Loading img={loading} />
   ) : (
     <div>
       <Header
