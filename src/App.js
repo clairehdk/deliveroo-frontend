@@ -10,19 +10,49 @@ import { useState, useEffect } from "react";
 import Header from "./components/Header";
 import Content from "./components/Content";
 import Loading from "./components/Loading";
+import Panier from "./components/Panier";
 
 function App() {
   // Récupère les datas
   const [data, setData] = useState({});
   // Gère la page en fonction de son état de chargement
   const [isLoading, setIsLoading] = useState(true);
+  // Gestion du panier
+  const [basket, setBasket] = useState([]);
+  // Gestion du compteur dans le panier
+  const [counter, setCounter] = useState([1]);
+  //
+  const [selected, isSelected] = useState(false);
 
-  // Création d'une variable pour récupérer les datas
+  // Création d'une fonction qui permet de récupérer les informations d'un item pour le mettre dans le panier
+  const handleBasket = (title, price) => {
+    if (selected === false) {
+      isSelected(true);
+    }
+    const newBasket = [...basket];
+    newBasket.push({ title: title, price: price });
+    setBasket(newBasket);
+  };
+
+  // Création de fonctions pour gérer le compteur
+  const handleMinus = (index) => {
+    const newCounter = [...counter];
+    newCounter[index]--;
+    setCounter(newCounter);
+  };
+
+  const handlePlus = (index) => {
+    const newCounter = [...counter];
+    newCounter[index]++;
+    setCounter(newCounter);
+  };
+
+  // Création d'une fonction pour récupérer les datas
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // On crée une variable dans laquelle on stocke les données recues du serveur créé sur le back, et on attend que toutes les données soient récupérées avant d'effectuer la suite
+        // On crée une fonction dans laquelle on stocke les données recues du serveur créé sur le back, et on attend que toutes les données soient récupérées avant d'effectuer la suite
         const response = await axios.get(
           "https://deliveroo-project.herokuapp.com"
         );
@@ -49,17 +79,28 @@ function App() {
         description={data.restaurant.description}
         picture={data.restaurant.picture}
       />
-      <div class="main-section">
+      <div className="main-section">
         <div className="container">
           <div className="meals">
             <div>
               {data.categories.map((category, index) => {
-                return <Content name={category.name} meals={category.meals} />;
+                return (
+                  <Content
+                    key={index}
+                    name={category.name}
+                    meals={category.meals}
+                    basket={handleBasket}
+                    selected={selected}
+                  />
+                );
               })}
             </div>
-            <div>
-              <h1>Panier</h1>
-            </div>
+            <Panier
+              basket={basket}
+              plus={handlePlus}
+              minus={handleMinus}
+              counter={counter}
+            />
           </div>
         </div>
       </div>

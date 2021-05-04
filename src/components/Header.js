@@ -4,7 +4,7 @@ const Header = ({ logo, title, description, picture }) => {
   return (
     <header>
       <div className="top-bar container">
-        <img src={logo}></img>
+        <img src={logo} alt="Deliveroo"></img>
       </div>
       <hr></hr>
       <div className="resto-infos container">
@@ -12,7 +12,7 @@ const Header = ({ logo, title, description, picture }) => {
           <h2>{title}</h2>
           <p>{description}</p>
         </div>
-        <img src={picture}></img>
+        <img src={picture} alt={title}></img>
       </div>
     </header>
   );

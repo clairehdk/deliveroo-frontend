@@ -1,6 +1,6 @@
 const Loading = ({ img }) => {
   return (
-    <div class="loading">
+    <div className="loading">
       <img src={img} alt="Page en cours de loading" />
     </div>
   );
