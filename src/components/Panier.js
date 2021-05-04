@@ -11,7 +11,23 @@ const Panier = ({ basket, plus, minus, counter }) => {
           <div key={index}>
             {/* {!elem.title && ( */}
             <>
-              <Counter plus={plus} minus={minus} counter={counter} />
+              {/* <Counter plus={plus} minus={minus} counter={counter} /> */}
+
+              <button
+                onClick={() => {
+                  minus(index);
+                }}
+              >
+                -
+              </button>
+              <span>{counter}</span>
+              <button
+                onClick={() => {
+                  plus(index);
+                }}
+              >
+                +
+              </button>
               <span>{elem.title}</span>
               <span>{elem.price}</span>
             </>

@@ -26,12 +26,11 @@ function App() {
 
   // Création d'une fonction qui permet de récupérer les informations d'un item pour le mettre dans le panier
   const handleBasket = (title, price) => {
-    if (selected === false) {
-      isSelected(true);
+    if (basket.indexOf(title) === -1) {
+      const newBasket = [...basket];
+      newBasket.push({ title: title, price: price });
+      setBasket(newBasket);
     }
-    const newBasket = [...basket];
-    newBasket.push({ title: title, price: price });
-    setBasket(newBasket);
   };
 
   // Création de fonctions pour gérer le compteur
