@@ -9,13 +9,13 @@ const Panier = ({ basket, plus, minus, counter }) => {
       {basket.map((elem, index) => {
         return (
           <div key={index}>
-            {!elem.title && (
-              <>
-                <Counter plus={plus} minus={minus} counter={counter} />
-                <span>{elem.title}</span>
-                <span>{elem.price}</span>
-              </>
-            )}
+            {/* {!elem.title && ( */}
+            <>
+              <Counter plus={plus} minus={minus} counter={counter} />
+              <span>{elem.title}</span>
+              <span>{elem.price}</span>
+            </>
+            {/* )} */}
           </div>
         );
       })}
