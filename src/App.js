@@ -21,8 +21,9 @@ function App() {
     const fetchData = async () => {
       try {
         // On crée une variable dans laquelle on stocke les données recues du serveur créé sur le back, et on attend que toutes les données soient récupérées avant d'effectuer la suite
-        const response = await axios.get("http://localhost:3200/");
-        console.log(response.data);
+        const response = await axios.get(
+          "https://deliveroo-project.herokuapp.com/"
+        );
         // On push les données du serveur dans notre objet data
         setData(response.data);
         // Si on a bien recu nos datas, alors le loading passe à false
