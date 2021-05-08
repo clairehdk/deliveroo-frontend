@@ -172,6 +172,7 @@ header .resto-infos img {
   margin-top: 30px;
   border-radius: 5px;
   position: sticky;
+  top: 20px;
   color: #2e3333;
   line-height: 20px;
 }
