@@ -188,6 +188,7 @@ header .resto-infos img {
 .container .panier .count {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   width: 100%;
 }
 .count span {
@@ -269,6 +270,17 @@ header .resto-infos img {
   .container .category {
     display: initial;
   }
+  .count > div:first-child > div {
+    width: 60%;
+  }
+  .count > div:first-child {
+    width: 65%;
+  }
+  .count > div:first-child > div:last-child {
+    width: 50%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 }
 @media (max-width: 880px) {
   header .resto-infos > div:first-child {
@@ -283,5 +295,27 @@ header .resto-infos img {
     width: 95%;
     height: 200px;
     object-fit: cover;
+  }
+}
+@media (max-width: 725px) {
+  .container .panier .count {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+  .count span {
+    margin-bottom: 10px;
+  }
+  .count > div:first-child {
+    display: initial;
+    line-height: 20px;
+    width: 100%;
+  }
+
+  .count > div:first-child > div:last-child {
+    width: 100%;
+  }
+  .count > div:first-child > div {
+    margin-bottom: 10px;
   }
 }
