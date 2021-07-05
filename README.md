@@ -1,6 +1,6 @@
 # DELIVEROO FRONTEND
 
-Vinted est un projet fullstack que j'ai réalisé qui propose une liste de restaurants et plats à ajouter dans un panier si voulu.
+Vinted est un projet fullstack React que j'ai réalisé qui propose une liste de restaurants et plats à ajouter dans un panier si voulu.
 
 Ceci est la partie frontend de mon projet.
 
